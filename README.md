@@ -1,2 +1,6 @@
-# intro_back-end_dev
-This is repo for a virtual class with the lesson plans and class handouts.
+# Introduction to Back-end Development
+
+About this Course
+Instructor:  [Brian Clincy](https://brianclincy.com)
+
+[a workaround link](intro_to_be_dev.pdf)
