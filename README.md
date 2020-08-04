@@ -15,7 +15,7 @@ Instructor:  [Brian Clincy](https://brianclincy.com)
 - Download and Study the [Syllabus](BOT_Tech_Backend_Development_8-Week_Syllabus.pdf)
 - Register for a GitHub account
 - Fork this Repo *Github account is required for this course *
-- Signup for [BOT's Slack](bit.ly/botslack)
+- Signup for [BOT's Slack](http://bit.ly/botslack)
 - Signup for board [Trello](https://trello.com/invite/b/vfElo7yo/65271dae9725d50b4c12b48fb5e608d5/intro-startup-list)
 - Check out the Prerequisites Tutorials
 - Have 4 Questions for the first day of class
@@ -26,6 +26,7 @@ Instructor:  [Brian Clincy](https://brianclincy.com)
 ### Code Editors
 - [Visual Studio Code](https://code.visualstudio.com/download) *Free* has the availability for extensions/add-ons and industry approved. Recommend adding extensions for ftp client, Intelephense Prettier, json formatter, javascript
 - [PHPStorm](https://www.jetbrains.com/phpstorm/download/) Not Free but my editor with everything built-in visual database, REST Client, Visual GIT, LINT and docker.
+### Database Software
 - [Heidi SQL](https://www.heidisql.com/download.php) *Free* an SQL database GUI OpenSource
 - [Robo 3T](https://robomongo.org/) *Free* mongodb GUI OpenSource Project
 - 
