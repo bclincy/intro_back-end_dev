@@ -29,7 +29,14 @@ Instructor:  [Brian Clincy](https://brianclincy.com)
 ### Database Software
 - [Heidi SQL](https://www.heidisql.com/download.php) *Free* an SQL database GUI OpenSource
 - [Robo 3T](https://robomongo.org/) *Free* mongodb GUI OpenSource Project
-- 
+
+### Back-end Software for you local
+  - [AMP Pros](https://ampps.com/download "Download AMP Pro's LAMP Stacks")
+  - [Mac Docker](https://hub.docker.com/editions/community/docker-ce-desktop-mac/ "Mac Installer") | [Win Docker]( https://docs.docker.com/docker-for-mac/install/ "Window Docker Install") | [Linux Docker](https://docs.docker.com/engine/install/ubuntu/ "Ubuntu Installation")
+
+### REST API Tools
+- [Postman](https://www.postman.com/downloads/)
+- [API Endpoints](https://gorest.co.in/) *not software but service*
 
 ## Support Documents
 
