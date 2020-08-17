@@ -1,9 +1,12 @@
 # Introduction to Back-end Development
 
-About this Course
+## About this Course
 
+[Course Intro Video](https://www.youtube.com/watch?v=4V1uNalS6NQ)
 ---
 Instructor:  [Brian Clincy](https://brianclincy.com)
+
+Teacher Assistant (TA): Leslie Brown
 
 ### Introduction:
 
