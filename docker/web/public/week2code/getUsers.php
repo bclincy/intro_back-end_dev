@@ -14,9 +14,7 @@ $context = stream_context_create($opts);
 
 $githubUser = file_get_contents('https://api.github.com/users', false, $context);
 $data = json_decode($githubUser, true);
-$firstUser = $data[1];
-$firstUserData = file_get_contents($firstUser['url'], false, $context);
-$info = json_decode($firstUserData, true);
+
 
 ?>
 <!DOCTYPE html>
@@ -38,8 +36,24 @@ $info = json_decode($firstUserData, true);
 </head>
 <body>
 <div class="hero">
-    <h1>Display User</h1>
-    <article>
+<h1>Display User</h1>
+
+<div class="users">
+<ul>
+<li>
+
+<?php 
+
+$i = 0;
+while($i <= 4){
+
+    echo var_dump($data[$i]);
+    $userdetails = $data[$i];
+    $userData = file_get_contents($userdetails['url'], false, $context);
+    $info = json_decode($userData, true);
+ 
+?>
+<article>
         <h3>1st User</h3>:
         <img src="<?php echo $info['avatar_url']; ?>" alt="User Image"/ />
         <ul>
@@ -47,6 +61,14 @@ $info = json_decode($firstUserData, true);
             <li><?php echo $firstUser['name']; ?></li>
         </ul>
     </article>
+<?
+$i++;
+}?>
+
+</li>
+</ul>
+    </div>
+    
 </div>
 <p>This Assignment you are getting data from the github's API allowing you to get user 
 data. This hits two endpoints user, then get user details. Go through 5 of these results and display

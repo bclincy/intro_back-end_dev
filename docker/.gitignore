@@ -1,1 +1,4 @@
-./docker/data/mysql/*
+./docker/data/mysql/
+.docker/data
+./docker/.env
+web/app/vendor
