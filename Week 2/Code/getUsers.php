@@ -17,7 +17,7 @@ $data = json_decode($githubUser, true);
 $firstUser = $data[0];
 $firstUserData = file_get_contents($firstUser['url'], false, $context);
 $info = json_decode($firstUserData, true);
-$date = new DateTime();
+$copyrightdate = new DateTime();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,6 +58,6 @@ $date = new DateTime();
 <p>This Assignment you are getting data from the github's API allowing you to get user
     data. This hits two endpoints user, then get user details. Go through 5 of these results and display
     the data. You can decide how or what data you'd want to display.</p>
-<div class="copyright">Copyrighted <?php echo $date->format('m-d-Y'); ?></div>
+<div class="copyright">Copyrighted <?php echo $copyrightdate->format('m-d-Y'); ?></div>
 </body>
 </html>
