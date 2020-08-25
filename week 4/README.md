@@ -28,4 +28,5 @@
     - CI/Jenkins
     - Deployed vs Done
   - Half way point evaluation
+  - Online Demo
   - Feedback
