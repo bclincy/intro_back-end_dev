@@ -54,7 +54,7 @@ Download [Class Syllabus](BOT_Tech_Backend_Development_8-Week_Syllabus.pdf)
 
 - This is a project based for building a Developer profile.
 
-- Personal Evalution and recomendations with leads for internships, jobs and/or continuing education.
+- Personal Evaluation and recommendations with leads for internships, jobs and/or continuing education.
 ---
 ### Prerequisites Tutorials (not required but helpful)
 
