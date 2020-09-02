@@ -11,5 +11,5 @@
   * Complete current tickets
   * Additional Homework via Slack and Ticketing
 
-
+VS-code [Docker plugin](https://code.visualstudio.com/docs/containers/overview)
 
