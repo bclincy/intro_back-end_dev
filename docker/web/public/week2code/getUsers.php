@@ -61,7 +61,7 @@ while($i <= 4){
             <li><?php echo $firstUser['name']; ?></li>
         </ul>
     </article>
-<?
+<?php
 $i++;
 }?>
 
