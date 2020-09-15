@@ -37,6 +37,13 @@ $info = json_decode($firstUserData, true);
     </style>
 </head>
 <body>
+<?php
+$jackson = '';
+for ($x = 0; $x <= 100; $x++) {
+ $jackson .=  "The number is: $x <br>";
+}
+echo $jackson;
+?>
 <div class="hero">
     <h1>Display User</h1>
     <article>
