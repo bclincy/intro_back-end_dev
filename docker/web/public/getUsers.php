@@ -41,6 +41,7 @@ $info = json_decode($firstUserData, true);
     <h1>Display User</h1>
     <article>
         <h3>1st User</h3>:
+        <h1> This is the first user</h1>
         <img src="<?php echo $info['avatar_url']; ?>" alt="User Image"/ />
         <ul>
             <li>Name:<?php echo $info['name']; ?></li>
