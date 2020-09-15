@@ -1,6 +1,7 @@
 {
     "require": {
-        "fzaninotto/faker": "^1.9"
+        "fzaninotto/faker": "^1.9",
+        "jeroendesloovere/vcard": "^1.7"
     },
     "require-dev": {
         "apigen/apigen": "dev-master",
