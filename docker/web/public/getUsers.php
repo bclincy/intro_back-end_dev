@@ -49,7 +49,7 @@ $info = json_decode($firstUserData, true);
             $i = 0;
             while ($i <= 4) {
 
-                 var_dump($data[$i]);
+                var_dump($data[$i]);
                 $userdetails = $data[$i];
                 $userData = file_get_contents($userdetails['url'], false, $context);
                 $info = json_decode($userData, true);
@@ -57,7 +57,7 @@ $info = json_decode($firstUserData, true);
             ?>
                 <article>
                     <h3><?php echo $info["id"]?> User</h3>:
-                    <img src="<?php echo $info['avatar_url']; ?>" alt="User Image"/ />
+                    <img src="<?php echo $info['avatar_url']; ?>" alt="User Image"/>
                     <ul>
                         <li>Name:<?php echo $info['name']; ?></li>
                         <li><?php echo $info['name']; ?></li>
