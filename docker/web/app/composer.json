@@ -1,6 +1,7 @@
 {
     "require": {
-
+        "fzaninotto/faker": "^1.9",
+        "jeroendesloovere/vcard": "^1.7"
     },
     "require-dev": {
         "apigen/apigen": "dev-master",
@@ -11,12 +12,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\Acme\\": "src/"
+            "App\\AddressBook\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AppTest\\Acme\\": "test/"
+            "AppTest\\AddressBook\\": "test/"
         }
     },
     "minimum-stability": "stable",

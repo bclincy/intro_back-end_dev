@@ -40,6 +40,7 @@ $info = json_decode($firstUserData, true);
 </head>
 
 <body>
+<<<<<<< HEAD
     <div class="hero">
         <h1>Display Users</h1>
         <article>
@@ -71,6 +72,29 @@ $info = json_decode($firstUserData, true);
     <p>This Assignment you are getting data from the github's API allowing you to get user
         data. This hits two endpoints user, then get user details. Go through 5 of these results and display
         the data. You can decide how or what data you'd want to display.</p>
+=======
+<?php
+$jackson = '';
+for ($x = 0; $x <= 100; $x++) {
+ $jackson .=  "The number is: $x <br>";
+}
+echo $jackson;
+?>
+<div class="hero">
+    <h1>Display User</h1>
+    <article>
+        <h3>1st User</h3>:
+        <img src="<?php echo $info['avatar_url']; ?>" alt="User Image"/ />
+        <ul>
+            <li>Name:<?php echo $info['name']; ?></li>
+            <li><?php echo $firstUser['name']; ?></li>
+        </ul>
+    </article>
+</div>
+<p>This Assignment you are getting data from the github's API allowing you to get user 
+data. This hits two endpoints user, then get user details. Go through 5 of these results and display
+the data. You can decide how or what data you'd want to display.</p>
+>>>>>>> 228eae6f7bbcb49af6608ffa742477992557dd5e
 </body>
 
 </html>
