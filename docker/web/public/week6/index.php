@@ -46,7 +46,7 @@ $vcard->addLabel('street, worktown, workpostcode Belgium');
 $vcard->addURL('http://www.jeroendesloovere.be');
 
 $vcard->addPhoto(__DIR__ . '/images/qcard.png');
-return $vcard->save();
+// return $vcard->save();
 ?>
 <!DOCTYPE html>
 <html lang="en">

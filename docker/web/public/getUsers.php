@@ -39,8 +39,8 @@ $info = json_decode($firstUserData, true);
 <body>
 <?php
 $jackson = '';
-for ($x = 0; $x <= 100; $x++) {
- $jackson .=  "The number is: $x <br>";
+for ($x = 0; $x <= 4; $x++) {
+ $jackson .=  "The number is: $data[$x] <br>";
 }
 echo $jackson;
 ?>
