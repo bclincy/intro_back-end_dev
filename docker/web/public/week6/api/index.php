@@ -53,7 +53,7 @@ function employees(pdo $db, array $filter = null): string
 
 function getEmployeeAddresses(array $employee): ?array 
 {
-     
+
 }
 
 $display = $_REQUEST['display'] ?? null;

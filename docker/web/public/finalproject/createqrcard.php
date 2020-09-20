@@ -1,3 +1,8 @@
+<?php
+require_once('settings.php');
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
