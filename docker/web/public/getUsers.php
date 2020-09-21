@@ -12,11 +12,11 @@ $context = stream_context_create($opts);
 
 // Open the file using the HTTP headers set above
 
-$githubUser = file_get_contents('https://api.github.com/users', false, $context);
-$data = json_decode($githubUser, true);
-$firstUser = $data[1];
-$firstUserData = file_get_contents($firstUser['url'], false, $context);
-$info = json_decode($firstUserData, true);
+// $githubUser = file_get_contents('https://api.github.com/users', false, $context);
+// $data = json_decode($githubUser, true);
+// $firstUser = $data[1];
+// $firstUserData = file_get_contents($firstUser['url'], false, $context);
+// $info = json_decode($firstUserData, true);
 ?>
 
 <!DOCTYPE html>
@@ -28,34 +28,48 @@ $info = json_decode($firstUserData, true);
     <title>Document</title>
     <link rel="stylesheet" href="standard.css" />
     <style>
-        .hero img {
-            float: right;
+        .heading {
+            text-align: center;
         }
 
-        .hero article {
-            background-color: white;
-            opacity: 0.5;
+        .hero img {
+            float: right;
+            height: 200px;
+            width: 200px;
+        }
+
+        /* .hero article {
+            /* background-color: white; */
+            /* opacity: 0.5; */
+             */
+       
+        .card-items {
+            display: inline-block;
+        }
+        .container {
+            display: flex;
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
     <div class="hero">
-        <h1>Display Users</h1>
-        <article>
+        <h1 class="heading">Display Users</h1>
+        <div class="container">
 
             <?php
 
             $i = 0;
             while ($i <= 4) {
 
-                var_dump($data[$i]);
+                // var_dump($data[$i]);
                 $userdetails = $data[$i];
                 $userData = file_get_contents($userdetails['url'], false, $context);
                 $info = json_decode($userData, true);
 
             ?>
-                <article>
+                <article class="card-items">
                     <h3><?php echo $info["id"]?> User</h3>:
                     <img src="<?php echo $info['avatar_url']; ?>" alt="User Image"/>
                     <ul>
