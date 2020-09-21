@@ -74,7 +74,7 @@ foreach ($conn->query($sql) as $row) {
                            <label class="col-md-4 control-label">State/Province/Region</label>
                            <div class="col-md-8 inputGroupContainer">
                               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                 <select class="input-group">
+                                 <select class="input-group" placeholder="please select a state" required>
                                     <option class="input-group">Choose One</option>
 
                                     <?php
