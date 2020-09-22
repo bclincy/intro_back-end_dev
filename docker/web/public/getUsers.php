@@ -12,11 +12,11 @@ $context = stream_context_create($opts);
 
 // Open the file using the HTTP headers set above
 
-// $githubUser = file_get_contents('https://api.github.com/users', false, $context);
-// $data = json_decode($githubUser, true);
-// $firstUser = $data[1];
-// $firstUserData = file_get_contents($firstUser['url'], false, $context);
-// $info = json_decode($firstUserData, true);
+$githubUser = file_get_contents('https://api.github.com/users', false, $context);
+$data = json_decode($githubUser, true);
+$firstUser = $data[1];
+$firstUserData = file_get_contents($firstUser['url'], false, $context);
+$info = json_decode($firstUserData, true);
 ?>
 
 <!DOCTYPE html>
@@ -28,48 +28,34 @@ $context = stream_context_create($opts);
     <title>Document</title>
     <link rel="stylesheet" href="standard.css" />
     <style>
-        .heading {
-            text-align: center;
-        }
-
         .hero img {
             float: right;
-            height: 200px;
-            width: 200px;
         }
 
-        /* .hero article {
-            /* background-color: white; */
-            /* opacity: 0.5; */
-             */
-       
-        .card-items {
-            display: inline-block;
-        }
-        .container {
-            display: flex;
-            width: 100%;
+        .hero article {
+            background-color: white;
+            opacity: 0.5;
         }
     </style>
 </head>
 
 <body>
     <div class="hero">
-        <h1 class="heading">Display Users</h1>
-        <div class="container">
+        <h1>Display Users</h1>
+        <article>
 
             <?php
 
             $i = 0;
             while ($i <= 4) {
 
-                // var_dump($data[$i]);
+                var_dump($data[$i]);
                 $userdetails = $data[$i];
                 $userData = file_get_contents($userdetails['url'], false, $context);
                 $info = json_decode($userData, true);
 
             ?>
-                <article class="card-items">
+                <article>
                     <h3><?php echo $info["id"]?> User</h3>:
                     <img src="<?php echo $info['avatar_url']; ?>" alt="User Image"/>
                     <ul>
