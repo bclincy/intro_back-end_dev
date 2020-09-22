@@ -38,6 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $additional = '';
    $prefix = '';
    $suffix = '';
+   $qrlink = sprintf('http://%s/vcf/%s.vcf', $_SERVER['SERVER_NAME'], $filename);
+//  $qrlink = 'http://' . $_SERVER['SERVER_NAME'] . '/';
+   die(var_dump($qrlink));
 
    // File Management
    $photo = upload_photo($filename, $uploadImgPath);
