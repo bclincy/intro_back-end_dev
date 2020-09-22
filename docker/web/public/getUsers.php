@@ -21,7 +21,6 @@ $context = stream_context_create($opts);
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +41,7 @@ $context = stream_context_create($opts);
             /* background-color: white; */
             /* opacity: 0.5; */
              */
-       
+
         .card-items {
             display: inline-block;
         }
@@ -86,5 +85,4 @@ $context = stream_context_create($opts);
         data. This hits two endpoints user, then get user details. Go through 5 of these results and display
         the data. You can decide how or what data you'd want to display.</p>
 </body>
-
 </html>

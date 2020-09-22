@@ -1,3 +1,5 @@
+##[Lesson Video](https://drive.google.com/file/d/1bmqMHNQru3gR7sLK4l19R161fxB5q_IF/view?usp=sharing)
+
 # Week One: Let's Get to Work
 - Pre week one
     - Complete the [Onboard section](https://github.com/bclincy/intro_back-end_dev#startingon-boarding-process "Intro Repository") of the course repository
