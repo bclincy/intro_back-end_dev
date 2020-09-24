@@ -22,16 +22,16 @@ class Foo
         if (file_exists($saveTo) === true){
             unlink($saveTo);
         }
-        $fp = fopen($saveTo,'w+');
-        fwrite($fp, $raw);
-        fclose($fp);
+        // $fp = fopen($saveTo,'w+');
+        // fwrite($fp, $raw);
+        // fclose($fp);
         
         return file_exists($saveTo); 
     }
 
     public function format_phone_us($phone) {
         // note: making sure we have something
-        if(!isset($phone{3})) { return ''; }
+        // if(!isset($phone{3})) { return ''; }
         // note: strip out everything but numbers 
         $phone = preg_replace('/[^0-9]/', '', $phone);
         $length = strlen($phone);

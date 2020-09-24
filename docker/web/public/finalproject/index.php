@@ -39,8 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $prefix = '';
    $suffix = '';
    $qrlink = sprintf('http://%s/vcf/%s.vcf', $_SERVER['SERVER_NAME'], $filename);
-//  $qrlink = 'http://' . $_SERVER['SERVER_NAME'] . '/';
-   die(var_dump($qrlink));
+    // $qrlink = 'http://' . $_SERVER['SERVER_NAME'] . '/';
+    // die(var_dump($qrlink));
+    echo is_dir($vcfPath) ? $vcfPath . ' is a directory' : 'directory does not exists';
 
    // File Management
    $photo = upload_photo($filename, $uploadImgPath);
@@ -49,6 +50,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    if ($photo !== false) {
       $vcard->addPhoto($uploadImgPath . $photo);
    }
+
+   // format phone number
+   $phone = $foo->format_phone_us($mobile);
+   var_dump($phone);
+
    // add personal data
    $vcard->addName($lname, $fname, $additional, $prefix, $suffix);
 
