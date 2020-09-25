@@ -4,7 +4,7 @@ require_once('settings.php');
 use JeroenDesloovere\VCard\VCard;
 use App\AddressBook\Foo;
 
-
+/** @var Foo $foo */
 $foo = new Foo();
 $stmt = $db->query('SELECT * FROM states');
 $result = $stmt->fetchAll();
@@ -38,10 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $additional = '';
    $prefix = '';
    $suffix = '';
-   $qrlink = sprintf('http://%s/vcf/%s.vcf', $_SERVER['SERVER_NAME'], $filename);
-    // $qrlink = 'http://' . $_SERVER['SERVER_NAME'] . '/';
-    // die(var_dump($qrlink));
-    echo is_dir($vcfPath) ? $vcfPath . ' is a directory' : 'directory does not exists';
+   $qrlink = sprintf('http://%s/vcf/%s.vcf', $_SERVER['HTTP_HOST'], $filename);
 
    // File Management
    $photo = upload_photo($filename, $uploadImgPath);
