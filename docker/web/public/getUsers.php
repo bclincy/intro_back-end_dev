@@ -31,11 +31,6 @@ $info = json_decode($firstUserData, true);
             float: right;
         }
 
-<<<<<<< HEAD
-        .hero article {
-            background-color: white;
-            opacity: 0.5;
-=======
         /* .hero article {
             /* background-color: white; */
             /* opacity: 0.5; */
@@ -47,7 +42,6 @@ $info = json_decode($firstUserData, true);
         .container {
             display: flex;
             width: 100%;
->>>>>>> 09ffb103be6c1708bce0801daa163ea5aa666b7b
         }
     </style>
 </head>
