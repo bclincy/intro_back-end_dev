@@ -1,5 +1,5 @@
 <?php
-ini_set('memory_limit', '8192M');
+
 require_once('settings.php');
 
 use JeroenDesloovere\VCard\VCard;
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    }
 
    // format phone number
-   $phone = $foo->format_phone_us($mobile);
+   $mobile = $foo->format_phone_us($mobile);
    // var_dump($phone);
 
    // add personal data
