@@ -3,4 +3,4 @@ docker/etc/ssl/cacert.pem
 docker/etc/ssl/server.key
 docker/etc/ssl/server.pem
 docker/.env
-.idea/*
+
