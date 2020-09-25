@@ -51,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
    // format phone number
    $mobile = $foo->format_phone_us($mobile);
-   // var_dump($phone);
 
    // add personal data
    $vcard->addName($lname, $fname, $additional, $prefix, $suffix);
