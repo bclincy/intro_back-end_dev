@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 require_once('settings.php');
 
 use JeroenDesloovere\VCard\VCard;
@@ -47,6 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    if ($photo !== false) {
       $vcard->addPhoto($uploadImgPath . $photo);
    }
+
+   // format phone number
+   $mobile = $foo->format_phone_us($mobile);
+
    // add personal data
    $vcard->addName($lname, $fname, $additional, $prefix, $suffix);
 
