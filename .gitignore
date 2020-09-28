@@ -5,3 +5,4 @@ docker/etc/ssl/server.pem
 docker/.env
 .idea/
 .vscode/
+.DS_Store
