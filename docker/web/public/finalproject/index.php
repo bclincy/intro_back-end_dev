@@ -19,7 +19,7 @@ function stateSelector (array $states) {
    return $selState .= '</select>';
 }
 
-$error[$key] = "";
+
 // This function runs a for loop to verify an array of values.
 function verify(array $inputs) {
     // for each item in the array make a key and value
@@ -52,13 +52,13 @@ $nameErr = $lnameErr = $emailErr = $genderErr = $mobileErr = $websiteErr = "";
 $name = $lname = $email = $gender = $comment = $mobile = $website = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    if (empty($_REQUEST["fname"])) {
+        //Checks if fname is empty and if its not empty that the name is greater then 2 characters, if true print error
+    if (!empty($_REQUEST["fname"])) {
         $nameErr = "Name is required";
       } else {
         $name = test_input($_POST["fname"]);
         // check if name only contains letters 
-        if (!preg_match("/^[a-zA-Z-]$/",$name)) {
+        if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
 
           $nameErr = "Only letters allowed";
 
@@ -69,13 +69,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     }
 
-    if (empty($_REQUEST["lname"])) {
+    if (!empty($_REQUEST["lname"])) {
           $lnameErr = "Name is required";
 
         } else {
           $lname = test_input($_POST["lname"]);
           // check if name only contains letters
-          if (!preg_match("/^[a-zA-Z-]$/",$lname)) {
+          if (!preg_match("/^[a-zA-Z-' ]*$/",$lname)) {
 
             $lnameErr = "Only letters allowed";
           } else if (!preg_match("/^[a-zA-Z-]{2,}$/",$lname)){
@@ -97,41 +97,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    
+
     if (empty($_REQUEST["mobile"])) {
         $mobileErr = "Phone number is required";
 
       } else {
         $mobile = test_input($_POST["mobile"]);
-        // check if name only contains letters
-        if (!preg_match('/^[0-9]{10}+$/', $mobile)) {
-
-          $mobileErr = "Enter a 10 digit mobile number";
-        }
-
-  }
+        if( is_int($mobile) === true && strlen($mobile) < 10) { 
+            $mobileErr = "Enter a 10 digit mobile number";
+          }
+    }
 
     
 
    //Format input && validate
-   $validateArry = [
-       'fname' => [
-           'required',
-           'length',
-           'First Name',
-           2
-       ],
-       'lname' => [
-        'required',
-        'length',
-        2
-        ],
-        'email' => [
-            'required',
-            'length',
-            'Email Address',
-            5
-        ],
-   ];
+//    $validateArry = [
+//        'fname' => [
+//            'required',
+//            'length',
+//            'First Name',
+//            2
+//        ],
+//        'lname' => [
+//         'required',
+//         'length',
+//         2
+//         ],
+//         'email' => [
+//             'required',
+//             'length',
+//             'Email Address',
+//             5
+//         ],
+//    ];
 
 //    verify($validateArry);
 
