@@ -19,12 +19,124 @@ function stateSelector (array $states) {
    return $selState .= '</select>';
 }
 
+
+// This function runs a for loop to verify an array of values.
+function verify(array $inputs) {
+    // for each item in the array make a key and value
+    // var_dump($inputs);
+    foreach ($inputs as $key => $input){
+        
+        // If the key(fname,lname) is set(is entered) and the filter returns false (), as a failure to filter
+        // This filter isnt working? everything returns true?
+        if(isset($_POST[$key]) && filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS) === false ){ 
+
+            // print to the screen that , === false put this after chars
+            // echo 'The' . $input[2] . 'is not valid'; 
+            // $error[$key] []= sprintf('%s is a required field', $key);
+            echo "This is working now";
+        } else {
+            echo $key;
+        };
+    };
+};
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+
+// define variables and set to empty values
+$nameErr = $lnameErr = $emailErr = $genderErr = $mobileErr = $websiteErr = "";
+$name = $lname = $email = $gender = $comment = $mobile = $website = "";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        //Checks if fname is empty and if its not empty that the name is greater then 2 characters, if true print error
+    if (!empty($_REQUEST["fname"])) {
+        $nameErr = "Name is required";
+      } else {
+        $name = test_input($_POST["fname"]);
+        // check if name only contains letters 
+        if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+
+          $nameErr = "Only letters allowed";
+
+        } else if (!preg_match("/^[a-zA-Z-]{2,}$/",$name)) {
+
+            $nameErr = "First name must be longer than 1 character";
+        }
+
+    }
+
+    if (!empty($_REQUEST["lname"])) {
+          $lnameErr = "Name is required";
+
+        } else {
+          $lname = test_input($_POST["lname"]);
+          // check if name only contains letters
+          if (!preg_match("/^[a-zA-Z-' ]*$/",$lname)) {
+
+            $lnameErr = "Only letters allowed";
+          } else if (!preg_match("/^[a-zA-Z-]{2,}$/",$lname)){
+
+            $lnameErr = "Last name must be longer than 1 character";
+          
+        }
+
+    }
+
+
+    if (empty($_REQUEST["email"])) {
+        $emailErr = "Email is required";
+      } else {
+        $email = test_input($_POST["email"]);
+        // check if e-mail address is well-formed
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+          $emailErr = "Invalid email format";
+        }
+    }
+
+    
+
+    if (empty($_REQUEST["mobile"])) {
+        $mobileErr = "Phone number is required";
+
+      } else {
+        $mobile = test_input($_POST["mobile"]);
+        if( is_int($mobile) === true && strlen($mobile) < 10) { 
+            $mobileErr = "Enter a 10 digit mobile number";
+          }
+    }
+
+    
+
    //Format input && validate
-   $phoneUtil = \libphonenumber\PhoneNumberUtil::getInstance();
+//    $validateArry = [
+//        'fname' => [
+//            'required',
+//            'length',
+//            'First Name',
+//            2
+//        ],
+//        'lname' => [
+//         'required',
+//         'length',
+//         2
+//         ],
+//         'email' => [
+//             'required',
+//             'length',
+//             'Email Address',
+//             5
+//         ],
+//    ];
+
+//    verify($validateArry);
+
    $fname = ucwords(strtolower($_REQUEST['fname']));
    $lname = ucwords(strtolower($_REQUEST['lname']));
-   $mobile = $phoneUtil->parse($_REQUEST['mobile'], 'US');
+   $mobile = $_REQUEST['mobile'];
 
    $uploadImgPath = __DIR__ . '/uploads/';
    $qrcodeImgsPath = __DIR__ . '/images/';
@@ -177,8 +289,9 @@ function upload_photo (string $name, string $filepath) {
                         <div class="form-group">
                         <label class="col-md-4 control-label" for="fname">First Name</label>  
                         <div class="col-md-4">
-                        <input id="fname" name="fname" type="text" placeholder="John" class="form-control input-md" required="required">
-                        <span class="help-block">Please enter your first name</span>  
+                        <input id="fname" name="fname" type="text" placeholder="John"  class="form-control input-md" required="required">
+                        <span class="help-block"><?php echo $nameErr;?></span>
+                        
                         </div>
                         </div>
 
@@ -187,7 +300,7 @@ function upload_photo (string $name, string $filepath) {
                         <label class="col-md-4 control-label" for="lname">Last Name</label>  
                         <div class="col-md-4">
                         <input id="lname" name="lname" type="text" placeholder="Doe" class="form-control input-md" required="required">
-                        <span class="help-block">Please enter your last name</span>  
+                        <span class="help-block"><?php echo $lnameErr;?></span>  
                         </div>
                         </div>
 
@@ -205,7 +318,7 @@ function upload_photo (string $name, string $filepath) {
                            <label class="col-md-4 control-label" for="email">email</label>  
                            <div class="col-md-4">
                               <input id="email" name="email" type="email" placeholder="somebody@home.com" class="form-control input-md" required="required">
-                              <span class="help-block">Enter your email address</span>  
+                              <span class="help-block"><?php echo $emailErr;?></span>  
                            </div>
                         </div>
 
