@@ -1,5 +1,5 @@
 <?php 
-$name = 'Brian Clincy';
+$name = 'Dream Team';
 $date = new DateTime();
 ?>
 <!DOCTYPE html>
