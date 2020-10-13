@@ -10,6 +10,13 @@ $foo = new Foo();
 $stmt = $db->query('SELECT * FROM states');
 $result = $stmt->fetchAll();
 $stateSelect = stateSelector($result);
+$fname = 'Brian';
+$lname = 'Clincy';
+$filename = 'brian-clincy-0032321323.vcf';
+$validate = [
+
+];
+
 function stateSelector (array $states) {
    $selState = '<select id="state" name="state" required="required" class="form-control">  <option value="" disabled selected>State...</option>';
    foreach($states as $state) {
@@ -19,38 +26,85 @@ function stateSelector (array $states) {
    return $selState .= '</select>';
 }
 
+function siteUrl() {
+    $baseurl = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
+    $baseurl.= $_SERVER['HTTP_HOST'];
+
+    return $baseurl;
+}
+
+function currentsiteDir () {
+    return str_replace($_SERVER['DOCUMENT_ROOT'], '', __DIR__);
+}
+
+function verify(array $inputs) {
+    // for each item in the array make a key and value
+    // var_dump($inputs);
+    foreach ($inputs as $key => $input){
+
+        // If the key(fname,lname) is set(is entered) and the filter returns false (), as a failure to filter
+        // This filter isnt working? everything returns true?
+        if(isset($_POST[$key]) && filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS) === false ){
+
+            // print to the screen that , === false put this after chars
+            // echo 'The' . $input[2] . 'is not valid';
+            // $error[$key] []= sprintf('%s is a required field', $key);
+            echo "This is working now";
+        } else {
+            echo $key;
+        };
+    };
+};
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    //Format input && validate
-   $phoneUtil = \libphonenumber\PhoneNumberUtil::getInstance();
+    [
+        'fname' => [
+            'required',
+            2,
+            'First Name',
+        ],
+        'lname' => [
+            'required',
+            2,
+            'Last Name',
+        ],
+        'email' => [
+            'required',
+            5,
+            'Email Address',
+            'email'
+        ],
+        'mobile' => [
+            'require'
+        ]
+    ];
+
+    $uploadImgPath = __DIR__ . '/uploads/';
+    $qrcodeImgsPath = __DIR__ . '/images/';
+    $vcfPath = __DIR__ .'/vcf/';
+    //define vcard
+    $vcard = new VCard();
+
+    // define variables
    $fname = ucwords(strtolower($_REQUEST['fname']));
    $lname = ucwords(strtolower($_REQUEST['lname']));
-   $mobile = $phoneUtil->parse($_REQUEST['mobile'], 'US');
-
-   $uploadImgPath = __DIR__ . '/uploads/';
-   $qrcodeImgsPath = __DIR__ . '/images/';
-   $vcfPath = __DIR__ .'/vcf/';
    $filename = strtolower(sprintf('%s-%s-%s', $fname, $lname, time()));
-   //define vcard
-   $vcard = new VCard();
-   
-   // define variables
-   $lastname = $_REQUEST['lname'];
-   $firstname = $_REQUEST['fname'];
    $additional = '';
    $prefix = '';
    $suffix = '';
-   $qrlink = sprintf('http://%s/finalproject/vcf/%s.vcf', $_SERVER['HTTP_HOST'], $filename);
+   $contactFile = sprintf('%s/vcf/%s.vcf', siteUrl() . currentsiteDir(), $filename);
 
    // File Management
    $photo = upload_photo($filename, $uploadImgPath);
-   $qrcode = sprintf('https://api.qrserver.com/v1/create-qr-code/?data=%s&amp;size=250x250', $firstname);
+   $qrcode = sprintf('https://api.qrserver.com/v1/create-qr-code/?data=%s&amp;size=300x300', $contactFile);
    $qrcodeDownloaded = $foo->downloadImg($qrcode, $filename);
    if ($photo !== false) {
       $vcard->addPhoto($uploadImgPath . $photo);
    }
 
    // format phone number
-   $mobile = $foo->format_phone_us($mobile);
+   $mobile = $foo->format_phone_us($_REQUEST['mobile']);
 
    // add personal data
    $vcard->addName($lname, $fname, $additional, $prefix, $suffix);
@@ -68,6 +122,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $vcard->setFilename($filename);
    $vcard->setSavePath($vcfPath);
    $vcard->save();
+
+    if(is_file($vcfPath . $filename . '.vcf')) {
+       $redirect = sprintf('location: %s%s/qrcodeCreated.php?fname=%s&lname=%s&filename=%s', siteUrl(), currentsiteDir(), $fname, $lname, $filename);
+       header($redirect);
+   }
+
 }
 
 function upload_photo (string $name, string $filepath) {

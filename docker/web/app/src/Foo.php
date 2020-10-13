@@ -22,9 +22,9 @@ class Foo
         if (file_exists($saveTo) === true){
             unlink($saveTo);
         }
-        // $fp = fopen($saveTo,'w+');
-        // fwrite($fp, $raw);
-        // fclose($fp);
+         $fp = fopen($saveTo,'w+');
+         fwrite($fp, $raw);
+         fclose($fp);
         
         return file_exists($saveTo); 
     }
