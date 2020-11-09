@@ -44,8 +44,10 @@ function verify(array $inputs) {
 
         // If the key(fname,lname) is set(is entered) and the filter returns false (), as a failure to filter
         // This filter isnt working? everything returns true?
-        if(isset($_POST[$key]) && filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS) === false ){
-
+        if (isset($_POST[$key]) && filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS) === false ){
+            // if (strlen($_POST[$key]) > $input['length']) {
+            //     $error[$key][] = 'too short';
+            // }
             // print to the screen that , === false put this after chars
             // echo 'The' . $input[2] . 'is not valid';
             // $error[$key] []= sprintf('%s is a required field', $key);
@@ -58,11 +60,11 @@ function verify(array $inputs) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    //Format input && validate
-    [
+    $validate = [
         'fname' => [
-            'required',
-            2,
-            'First Name',
+            'is_requred' => true,
+            'length' => 2,
+            'display' => 'First Name',
         ],
         'lname' => [
             'required',
@@ -76,7 +78,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'email'
         ],
         'mobile' => [
-            'require'
+            'required',
+            10,
+            'phone'
         ]
     ];
 
