@@ -1,5 +1,7 @@
 #Week 2 BOT Intro to Back-end Development
 [weekly video](https://drive.google.com/file/d/1b07XC0g90rMXEmSYbvWSg0zTUcx0OHuS/view?usp=sharing "Class Week 2")
+
+[Recourse Video](https://photos.app.goo.gl/HfkxJpXQ3z6KdkDB6)
     
 * [Class Syllabus](../Class_Syllabus.md "Clas")
   * First lesson didn't follow the syllabus

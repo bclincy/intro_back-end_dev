@@ -3,3 +3,7 @@ docker/etc/ssl/cacert.pem
 docker/etc/ssl/server.key
 docker/etc/ssl/server.pem
 docker/.env
+.idea/
+.vscode/
+.DS_Store
+docker/web/public/finalproject/vcf/*.vcf

@@ -1,6 +1,8 @@
 {
     "require": {
-        "fzaninotto/faker": "^1.9"
+        "fzaninotto/faker": "^1.9",
+        "jeroendesloovere/vcard": "^1.7",
+        "giggsey/libphonenumber-for-php": "^8.12"
     },
     "require-dev": {
         "apigen/apigen": "dev-master",
