@@ -106,6 +106,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    if ($photo !== false) {
       $vcard->addPhoto($uploadImgPath . $photo);
    }
+   if ($filename == true){
+       header('Location: http://www.yahoo.com');
+   }
 
    // format phone number
    $mobile = $foo->format_phone_us($_REQUEST['mobile']);
