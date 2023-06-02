@@ -82,3 +82,6 @@ Participants should have some basic knowledge of different web servers and http 
 
 - [Nodejs crash course](https://www.youtube.com/watch?v=-56x56UppqQ)
 
+## Start local PHP server
+
+- php -S localhost:8000 -t webroot
