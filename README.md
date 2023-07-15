@@ -18,7 +18,7 @@ Teacher Assistant (TA): Leslie Brown
 - Download and Study the [Syllabus](BOT_Tech_Backend_Development_8-Week_Syllabus.pdf)
 - Register for a GitHub account
 - Fork this Repo *Github account is required for this course *
-- Signup for [BOT's Slack](http://bit.ly/botslack)
+- Signup for [GCoded's Slack]([http://bit.ly/botslack](https://join.slack.com/t/beezout/shared_invite/zt-1z2j64h9z-F0yMCTa57zBrkcjneV9bTg))
 - Signup for board [Trello](https://trello.com/invite/b/vfElo7yo/65271dae9725d50b4c12b48fb5e608d5/intro-startup-list)
 - Check out the Prerequisites Tutorials
 - Have 4 Questions for the first day of class
@@ -69,6 +69,7 @@ Participants should have some basic knowledge of different web servers and http 
     - [CSS Cheat sheet](https://websitesetup.org/wp-content/uploads/2019/11/wsu-css-cheat-sheet-gdocs.pdf)
     
 -   Javascript [https://www.youtube.com/watch?v=Ukg_U3CnJWI](https://www.youtube.com/watch?v=Ukg_U3CnJWI)
+-   Internet security Pentesting [https://www.youtube.com/watch?v=B7tTQ272OHE](https://www.youtube.com/watch?v=B7tTQ272OHE)
 
 
 ---
